@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #000 radial-gradient(#555, #000);
+}
+
+.stars {
+  position: fixed;
+  z-index: -1;
+  background-image: url('./images/stars.png');
+  width: 100%;
+  height: 100%;
+  animation: move 30s linear infinite;
+}
+
+.stars:nth-of-type(2) {
+  left: -100%;
+  animation: move 30s linear infinite;
+}
+
+.sun {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  background-color: orange;
+  background-image: radial-gradient(#f5c313, #ec7e08);
+  box-shadow: 0 0 50px #f5c91a;
+  animation: shine 4s linear infinite alternate;
+}
+
+.earth-orbit {
+  width: 600px;
+  height: 700px;
+  /* border: solid white 1px; */
+  border-radius: 50%;
+  position: fixed;
+  top: calc(50% - 350px);
+  left: calc(50% - 300px);
+  animation: rotate 30s linear infinite;
+}
+
+.earth {
+  width: 80px;
+  height: 80px;
+  background-image: url('./images/earth.png');
+  position: absolute;
+  top: calc(50% - 40px);
+  left: -40px;
+  animation: rotate 2s linear infinite;
+}
+
+.moon-orbit {
+  width: 150px;
+  height: 150px;
+  /* border: solid white 1px; */
+  position: absolute;
+  top: calc(50% - 75px);
+  left: -75px;
+  border-radius: 50%;
+  animation: rotate 3s linear infinite reverse;
+}
+
+.moon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: -10px;
+  background-image: radial-gradient(#ddd, #888);
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 720px) {
+  .sun {
+    transform: scale(0.5);
+  }
+
+  .earth-orbit {
+    width: 400px;
+    height: 100px;
+    top: calc(50% - 50px);
+    left: calc(50% - 200px);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shine {
+  to {
+    box-shadow: 0 0 200px #f5c91a;
+  }
+}
